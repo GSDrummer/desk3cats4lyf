@@ -1,22 +1,104 @@
 import "./App.css";
+import React, { useState } from "react";
+import { Cat, basket } from "./Cat.js";
 
-function App() {
+const App = () => {
+  class Cats {
+    constructor(name, price) {
+      this.name = name;
+      this.price = price;
+    }
+  }
+  let cat1 = new Cats("Toby", Math.floor(Math.random() * 1000));
+  let cat2 = new Cats("Snuffles", Math.floor(Math.random() * 1000));
+  let cat3 = new Cats("Snowball II", Math.floor(Math.random() * 1000));
+  let cat4 = new Cats("Enid", Math.floor(Math.random() * 1000));
+  let cat5 = new Cats("Jake", Math.floor(Math.random() * 1000));
+  let cat6 = new Cats("Mouse Detroyer 3000", Math.floor(Math.random() * 1000));
+  let cat7 = new Cats("Geoff", Math.floor(Math.random() * 1000));
+  let cat8 = new Cats("Paul", Math.floor(Math.random() * 1000));
+  let cat9 = new Cats("UWU", Math.floor(Math.random() * 1000));
+  const [basketPressed, setBasketPressed] = useState(false);
+  const catsSelected = [basket];
+  const listCats = catsSelected.map((cat) => <li id="basketList">£{cat}</li>);
+  const calculateTotal = () => {
+    let x = 0;
+    let total = 0;
+    let i;
+    for (i in catsSelected) {
+      total = x + catsSelected[i];
+      x = total;
+    }
+    return total;
+  };
+
+  const dropdownFunction = () => {
+    if (basketPressed === true) {
+      return (
+        <div className="dropdown-content">
+          <h1>Your Basket</h1>
+          <p>{listCats}</p>
+          <p>Total price: {calculateTotal()}</p>
+        </div>
+      );
+    }
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+      <div className="header">
+        <h1>Cats4Lyfe</h1>
+        <p className="subHead">
+          Your one stop shop for collecting Cats. They're all purrrrrrfect.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        ></a>
-      </header>
+
+        <div className="dropdown">
+          <button onClick={() => setBasketPressed(!basketPressed)}>
+            Basket
+          </button>
+          {dropdownFunction()}
+        </div>
+      </div>
+      <div className="container">
+        <div className="catPage">
+          <h3>{cat1.name}</h3>
+          <Cat />
+          <p>£{cat1.price}</p>
+        </div>
+        <div className="catPage">
+          <h3>{cat2.name}</h3>
+          <Cat />
+        </div>
+        <div className="catPage">
+          <h3>{cat3.name}</h3>
+          <Cat />
+        </div>
+        <div className="catPage">
+          <h3>{cat4.name}</h3>
+          <Cat />
+        </div>
+        <div className="catPage">
+          <h3>{cat5.name}</h3>
+          <Cat />
+        </div>
+        <div className="catPage">
+          <h3>{cat6.name}</h3>
+          <Cat />
+        </div>
+        <div className="catPage">
+          <h3>{cat7.name}</h3>
+          <Cat />
+        </div>
+        <div className="catPage">
+          <h3>{cat8.name}</h3>
+          <Cat />
+        </div>
+        <div className="catPage">
+          <h3>{cat9.name}</h3>
+          <Cat />
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
