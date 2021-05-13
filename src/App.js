@@ -1,6 +1,6 @@
 import "./App.css";
-import React, { useState } from "react";
-import { Cat, basket } from "./Cat.js";
+import React from "react";
+import { Cat} from "./Cat.js";
 
 const App = () => {
   class Cats {
@@ -18,31 +18,31 @@ const App = () => {
   let cat7 = new Cats("Geoff", Math.floor(Math.random() * 1000));
   let cat8 = new Cats("Paul", Math.floor(Math.random() * 1000));
   let cat9 = new Cats("UWU", Math.floor(Math.random() * 1000));
-  const [basketPressed, setBasketPressed] = useState(false);
-  const catsSelected = [basket];
-  const listCats = catsSelected.map((cat) => <li id="basketList">£{cat}</li>);
+  
+  
+  
+
+  const basketName = ["Toby", "fuck you, you cunt"];
+  const basketPrice = [5767676, -33];
+  const listCatNames = basketName.map((cat) => <li id="basketList">{cat}</li>);
+  const listCatPrices = basketPrice.map((cat) => <li id="basketList">£{cat}</li>);
   const calculateTotal = () => {
     let x = 0;
     let total = 0;
     let i;
-    for (i in catsSelected) {
-      total = x + catsSelected[i];
+    for (i in basketPrice) {
+      total = x + basketPrice[i];
       x = total;
     }
     return total;
   };
 
-  const dropdownFunction = () => {
-    if (basketPressed === true) {
-      return (
-        <div className="dropdown-content">
-          <h1>Your Basket</h1>
-          <p>{listCats}</p>
-          <p>Total price: {calculateTotal()}</p>
-        </div>
-      );
-    }
+  const handleOnClick = () => {
+    basketName.push(`${cat1.name}`);
+    basketPrice.push(`${cat1.price}`);
   };
+
+
   return (
     <div className="App">
       <div className="header">
@@ -52,17 +52,24 @@ const App = () => {
         </p>
 
         <div className="dropdown">
-          <button onClick={() => setBasketPressed(!basketPressed)}>
+          <button>
             Basket
           </button>
-          {dropdownFunction()}
+          <div className="dropdown-content">
+          <h1>Your Basket</h1>
+          <p>{listCatNames}</p>
+          <p>{listCatPrices}</p>
+          <p>Total price: {calculateTotal()}</p>
         </div>
+        </div>
+
       </div>
       <div className="container">
         <div className="catPage">
           <h3>{cat1.name}</h3>
           <Cat />
           <p>£{cat1.price}</p>
+          <button onClick={handleOnClick}>Add to Basket</button>
         </div>
         <div className="catPage">
           <h3>{cat2.name}</h3>
