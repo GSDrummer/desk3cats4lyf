@@ -52,6 +52,11 @@ const App = () => {
     return total;
   };
 
+  const clearBasket = () => {
+    setBasketName([]);
+    setBasketPrice([]);
+  };
+
   const handleOnClick1 = () => {
     setBasketName([...basketName, cat1.name]);
     setBasketPrice([...basketPrice, cat1.price]);
@@ -106,6 +111,9 @@ const App = () => {
               <p>{listCatPrices()}</p>
             </div>
             <p>Total price: £{calculateTotal()}</p>
+            <button onClick={clearBasket} className="clearBtn">
+              Empty
+            </button>
           </div>
         </div>
       </div>
