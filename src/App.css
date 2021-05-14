@@ -13,7 +13,8 @@
   color: white;
   border: none;
   border-radius: 90px;
-  cursor: pointer;
+  cursor: none;
+  user-select: none;
   margin-top: 20%;
 }
 
@@ -48,12 +49,6 @@
   font-size: 1.5em;
   font-weight: 200;
 }
-
-/* .dropdown {
-  position: relative;
-  float: right;
-  padding-right: 125px;
-} */
 
 .dropdown:hover .dropdown-content {
   display: block;
