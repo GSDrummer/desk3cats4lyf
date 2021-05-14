@@ -38,7 +38,7 @@
   padding-right: 125px;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown .dropdown-content {
   display: block;
 }
 
@@ -55,16 +55,20 @@
 }
 
 .lists {
-  display: flex
+  display: flex;
 }
 
 .lists ul {
   list-style-type: none;
+  padding: 5px;
+  margin: 0px;
 }
 
 .lists li {
   text-align: left;
 }
+
+
 
 .dropdown h1 {
   text-decoration: none;

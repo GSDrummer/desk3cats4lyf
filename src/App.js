@@ -5,6 +5,7 @@ import { Cat} from "./Cat.js";
 const App = () => {
   const [basketName, setBasketName] = useState([]);
   const [basketPrice, setBasketPrice] = useState([]);
+  const [basketPressed, setBasketPressed] = useState(false);
   class Cats {
     constructor(name, price) {
       this.name = name;
@@ -21,6 +22,20 @@ const App = () => {
   let cat8 = new Cats("Paul", Math.floor(Math.random() * 1000));
   let cat9 = new Cats("UWU", Math.floor(Math.random() * 1000));
   
+  const dropdownFunction = () => {
+    if (basketPressed === true) {
+      return (
+        <div className="dropdown-content">
+          <h1>Your Basket</h1>
+          <div className="lists">
+          <p>{listCatNames()}</p>
+          <p>{listCatPrices()}</p>
+        </div>
+          <p>Total price: £{calculateTotal()}</p>
+        </div>
+      )
+    }
+  }
   
   const listCatNames = () => {
     let i;
@@ -103,17 +118,11 @@ const App = () => {
           Your one stop shop for collecting Cats. They're all purrrrrrfect.
         </p>
         <div className="dropdown">
-          <button>
+          <button onClick={() => setBasketPressed(!basketPressed)}>
             Basket
           </button>
-          <div className="dropdown-content">
-          <h1>Your Basket</h1>
-          <div className="lists">
-            <p>{listCatNames()}</p>
-           <p>{listCatPrices()}</p>
-          </div>
-          <p>Total price: £{calculateTotal()}</p>
-        </div>
+          {dropdownFunction()}
+
         </div>
 
       </div>
