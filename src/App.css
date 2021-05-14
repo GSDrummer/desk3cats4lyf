@@ -17,6 +17,23 @@
   margin-top: 20%;
 }
 
+.basketBtn {
+  width: 100px;
+  height: 30px;
+  margin-top: 30px;
+  background-color: rgb(231, 114, 182);
+  color: white;
+  font-size: medium;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.headerWrapper {
+  display: flex;
+  justify-items: center;
+  border: 1px solid black;
+}
+
 .header {
   display: flex;
   justify-content: center;
@@ -31,12 +48,11 @@
   font-weight: 200;
 }
 
-.dropdown {
+/* .dropdown {
   position: relative;
-  display: block;
   float: right;
   padding-right: 125px;
-}
+} */
 
 .dropdown:hover .dropdown-content {
   display: block;
@@ -52,6 +68,18 @@
   border: solid hotpink 5px;
   border-radius: 40px;
   z-index: 1;
+}
+
+.lists {
+  display: flex;
+}
+
+.lists ul {
+  list-style-type: none;
+}
+
+.lists li {
+  text-align: left;
 }
 
 .dropdown h1 {
