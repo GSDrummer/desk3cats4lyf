@@ -26,7 +26,7 @@ const App = () => {
     let i;
     for (i in basketName) {
       let basketListName = basketName.map((basketName) =>
-      <li>{basketName}</li>
+      <li>{basketName}: </li>
       );
 
       return(<ul>{basketListName}</ul>);
@@ -37,16 +37,13 @@ const App = () => {
     let i;
     for (i in basketPrice) {
       let basketListPrice = basketPrice.map((basketPrice) => 
-      <li>{basketPrice}</li>
+      <li>£{basketPrice}</li>
       );
       return(<ul>{basketListPrice}</ul>);
     }
   }
   
 
-  
-  // const listCatNames = basketName.map((cat) => <li id="basketList">{cat}</li>);
-  // const listCatPrices = basketPrice.map((cat) => <li id="basketList">£{cat}</li>);
   const calculateTotal = () => {
     let x = 0;
     let total = 0;
@@ -105,16 +102,16 @@ const App = () => {
         <p className="subHead">
           Your one stop shop for collecting Cats. They're all purrrrrrfect.
         </p>
-        <p>{console.log(basketName)}</p>
         <div className="dropdown">
           <button>
             Basket
           </button>
           <div className="dropdown-content">
           <h1>Your Basket</h1>
-          <p>{listCatNames()}</p>
-          <ul>{listCatPrices()}</ul>
-          {/* <p>{listCatPrices}</p> */}
+          <div className="lists">
+            <p>{listCatNames()}</p>
+           <p>{listCatPrices()}</p>
+          </div>
           <p>Total price: £{calculateTotal()}</p>
         </div>
         </div>
@@ -171,9 +168,9 @@ const App = () => {
         </div>
         <div className="catPage">
           <h3>{cat9.name}</h3>
-          <p>£{cat9.price}</p>
-          <button onClick={handleOnClick9}>Add to Basket</button>
           <Cat />
+          <p>£{cat9.price}</p>
+          <button onClick={handleOnClick9}>Add to Basket</button> 
         </div>
       </div>
     </div>
