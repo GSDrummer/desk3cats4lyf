@@ -25,14 +25,21 @@ const App = () => {
   const listCatNames = () => {
     let i;
     for (i in basketName) {
-      return(<li>{`${basketName} :`}</li>)
+      let basketListName = basketName.map((basketName) =>
+      <li>{basketName}</li>
+      );
+
+      return(<ul>{basketListName}</ul>);
     }
   }
 
   const listCatPrices = () => {
     let i;
     for (i in basketPrice) {
-      return(<li>{`£${basketPrice}`}</li>)
+      let basketListPrice = basketPrice.map((basketPrice) => 
+      <li>{basketPrice}</li>
+      );
+      return(<ul>{basketListPrice}</ul>);
     }
   }
   
@@ -52,42 +59,42 @@ const App = () => {
   };
 
   const handleOnClick1 = () => {
-    setBasketName(basketName + cat1.name);
-    setBasketPrice(basketPrice + cat1.price);
+    setBasketName([...basketName, cat1.name]);
+    setBasketPrice([...basketPrice, cat1.price]);
   };
 
   const handleOnClick2 = () => {
-    setBasketName(basketName + cat2.name);
-    setBasketPrice(basketPrice + cat2.price);
+    setBasketName([...basketName, cat2.name]);
+    setBasketPrice([...basketPrice, cat2.price]);
   };
 
   const handleOnClick3 = () => {
-    setBasketName(basketName + cat3.name);
-    setBasketPrice(basketPrice + cat3.price);
+    setBasketName([...basketName, cat3.name]);
+    setBasketPrice([...basketPrice, cat3.price]);
   };
   const handleOnClick4 = () => {
-    setBasketName(basketName + cat4.name);
-    setBasketPrice(basketPrice + cat4.price);
+    setBasketName([...basketName, cat4.name]);
+    setBasketPrice([...basketPrice, cat4.price]);
   };
   const handleOnClick5 = () => {
-    setBasketName(basketName + cat5.name);
-    setBasketPrice(basketPrice + cat5.price);
+    setBasketName([...basketName, cat5.name]);
+    setBasketPrice([...basketPrice, cat5.price]);
   };
   const handleOnClick6 = () => {
-    setBasketName(basketName + cat6.name);
-    setBasketPrice(basketPrice + cat6.price);
+    setBasketName([...basketName, cat6.name]);
+    setBasketPrice([...basketPrice, cat6.price]);
   };
   const handleOnClick7 = () => {
-    setBasketName(basketName + cat7.name);
-    setBasketPrice(basketPrice + cat7.price);
+    setBasketName([...basketName, cat7.name]);
+    setBasketPrice([...basketPrice, cat7.price]);
   };
   const handleOnClick8 = () => {
-    setBasketName(basketName + cat8.name);
-    setBasketPrice(basketPrice + cat8.price);
+    setBasketName([...basketName, cat8.name]);
+    setBasketPrice([...basketPrice, cat8.price]);
   };
   const handleOnClick9 = () => {
-    setBasketName(basketName + cat9.name);
-    setBasketPrice(basketPrice + cat9.price);
+    setBasketName([...basketName, cat9.name]);
+    setBasketPrice([...basketPrice, cat9.price]);
   };
 
 
@@ -98,13 +105,14 @@ const App = () => {
         <p className="subHead">
           Your one stop shop for collecting Cats. They're all purrrrrrfect.
         </p>
+        <p>{console.log(basketName)}</p>
         <div className="dropdown">
           <button>
             Basket
           </button>
           <div className="dropdown-content">
           <h1>Your Basket</h1>
-          <ul>{listCatNames()}</ul>
+          <p>{listCatNames()}</p>
           <ul>{listCatPrices()}</ul>
           {/* <p>{listCatPrices}</p> */}
           <p>Total price: £{calculateTotal()}</p>
