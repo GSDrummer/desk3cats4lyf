@@ -26,8 +26,7 @@
   font-size: medium;
   border: none;
   border-radius: 10px;
-  cursor: none;
-  user-select: none;
+  cursor: pointer;
 }
 
 .headerWrapper {
@@ -51,23 +50,31 @@
 }
 
 .dropdown:hover .dropdown-content {
-  display: block;
+  visibility: visible;
 }
 
 .dropdown-content {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  visibility: hidden;
   position: absolute;
-  width: 200px;
+  align-items: center;
+  min-width: none;
+  max-width: 300px;
   background-color: rgb(255, 255, 255);
   color: hotpink;
-  text-align: center;
   border: solid hotpink 5px;
   border-radius: 40px;
   z-index: 1;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .lists {
   display: flex;
+  flex-direction: row;
+  min-width: none;
+  max-width: 300px;
 }
 
 .lists ul {
@@ -76,6 +83,8 @@
 
 .lists li {
   text-align: left;
+  margin-left: -30px;
+  padding-right: 10px;
 }
 
 .dropdown h1 {
@@ -95,16 +104,14 @@
 }
 
 .catPage {
-  display: grid;
-  grid-template-areas:
-    "."
-    ". .";
-  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  margin: 2%;
   color: white;
   font-size: 1.5em;
   font-weight: 400;
+  padding-bottom: 5%;
 }
 
 .catPage img {
@@ -121,12 +128,12 @@
 
 .catPage p {
   width: min-content;
-  padding: 1px;
+  /* padding: 1px; */
 }
 
 .catPage button {
   width: 120px;
-  margin: 5%;
+  /* margin: 5%; */
   background-color: rgb(231, 114, 182);
   color: white;
   border: none;
