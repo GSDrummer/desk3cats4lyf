@@ -41,7 +41,6 @@ const App = () => {
       return <ul>{basketListPrice}</ul>;
     }
   };
-
   const calculateTotal = () => {
     let x = 0;
     let total = 0;
@@ -91,7 +90,6 @@ const App = () => {
     setBasketName([...basketName, cat9.name]);
     setBasketPrice([...basketPrice, cat9.price]);
   };
-
   return (
     <div className="App">
       <div className="header">
